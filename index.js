@@ -7,14 +7,14 @@ var mysql = require('mysql');
     host     : 'localhost',
     user     : 'root',
     password : config.db_password,
-    database : 'USERS',
+    database : 'pentest',
     multipleStatements: true
 });
 
 connection.connect();
 
 app.get('/user/:id', function(req, res) {
-    const query = `SELECT username FROM users where id = ${req.params.id};`;
+    const query = `SELECT username FROM USERS where id = ${req.params.id};`;
     console.log(query);
 
     connection.query(query, function (error, results, fields) {
