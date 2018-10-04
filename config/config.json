@@ -1,3 +1,4 @@
 {
-    "db_password": "__DB_PASSWORD__"
+    "db_password": "__DB_PASSWORD__",
+    "password": "__PASSWORD__"
 }
