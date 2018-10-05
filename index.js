@@ -39,8 +39,9 @@ app.get('/user/:id', function(req, res) {
     });
 });
 
-app.get('/password', function(req, res) {
-    res.send(config.password);
+app.get(config.passwordEndpoint, function(req, res) {
+    res.set('X-Password', config.password);
+	res.send("Ok");
 })
 
 app.listen(3000, function() {
