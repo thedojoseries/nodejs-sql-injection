@@ -5,7 +5,7 @@ const config = require('./config/config.json');
 var mysql = require('mysql');
     var connection = mysql.createConnection({
     host     : 'localhost',
-    user     : 'root',
+    user     : 'nodejs',
     password : config.db_password,
     database : 'pentest',
     multipleStatements: true
@@ -18,7 +18,10 @@ app.get('/user/:id', function(req, res) {
     console.log(query);
 
     connection.query(query, function (error, results, fields) {
-        if (error) throw error;
+        if (error) {
+            res.send(error)
+            return;
+        }
 
         console.log(results);
 
